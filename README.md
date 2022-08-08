@@ -1,1 +1,1 @@
-# scale-poc
+# POC for event driven architecture
