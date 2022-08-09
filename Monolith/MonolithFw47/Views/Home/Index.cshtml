@@ -1,0 +1,33 @@
+﻿@model MonolithFw47.Models.MessageViewModel
+@{
+    ViewBag.Title = "Home Page";
+    
+}
+
+<div class="jumbotron">
+    <h1>Monolith</h1>
+    <p class="lead">This represents the monolith written in .NET framework 4.7</p>
+</div>
+<div class="row">
+    @using (Html.BeginForm("SendMessage", "Home"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-floating mb-3">
+                    @Html.EditorFor(m => m.Message, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Message" }})
+                    @*<input type="text" id="Message" class="form-control form-control-lg" placeholder="Message" />*@
+                    <label for="Message">Message</label>
+                    <div class="form-text">Type a message here.</div>
+                    @Html.ValidationMessageFor(m => m.Message)
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <button type="submit" class="btn btn-primary btn-lg">Send</button>
+            </div>
+        </div>
+    }
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
