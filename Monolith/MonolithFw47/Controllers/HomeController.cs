@@ -24,12 +24,6 @@ namespace MonolithFw47.Controllers
                 return View("Index");
             }
 
-            await MvcApplication.Bus.Publish<MessageAdded>(new
-            {
-                Message = messageView.Message
-            });
-
-            MvcApplication.Rider.
             return View("Index");
         }
     }
