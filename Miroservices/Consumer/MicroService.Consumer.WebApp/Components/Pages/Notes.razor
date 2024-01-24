@@ -1,0 +1,58 @@
+﻿@page "/notes"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject ConsumerContext DbContext;
+
+<div class="container-fluid">
+    <h3>Notes in local database</h3>
+
+    <QuickGrid Items="@notes" Class="table">
+        <PropertyColumn Property="@(p => p.Text)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.CreatedAt)" Format="yyyy-MM-dd hh:mm:ss" Sortable="true" />
+    </QuickGrid>
+    
+    <span>Last refreshed at @LastRefreshed.ToString("G")</span>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm] private NoteModel? Model { get; set; }
+
+    private DateTime LastRefreshed { get; set; } = DateTime.Now;
+
+    private IQueryable<NoteModel> notes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model ??= new();
+        RefreshNotes();
+
+        var timer = new  Timer(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                LastRefreshed = DateTime.Now;
+                RefreshNotes();
+                this.StateHasChanged();
+            });
+            Console.WriteLine("Refreshed");
+
+        }, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+    }
+
+
+    public class NoteModel
+    {
+        [Required]
+        [StringLength(500)]
+        public string Text { get; init; }
+
+        public DateTime CreatedAt { get; init; }
+    }
+
+    private void RefreshNotes()
+    {
+        this.notes = DbContext.Notes.OrderByDescending(n => n.CreatedAt).Select(n => new NoteModel { Text = n.Text, CreatedAt = n.CreatedAt }).AsQueryable();
+    }
+
+}

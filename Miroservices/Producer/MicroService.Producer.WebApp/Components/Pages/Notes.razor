@@ -1,0 +1,75 @@
+﻿@page "/notes"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject ProducerContext DbContext;
+
+<div class="container-fluid mb-4">
+    <h3>Add a note</h3>
+    <EditForm Model="@Model" OnSubmit="@Submit" FormName="NoteAddFrom">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="mb-3">
+            <label class="form-label">
+                Text:
+            </label>
+            <InputText @bind-Value="Model!.Text" class="form-control" aria-describedby="noteHelp" />
+            <div id="noteHelp" class="form-text">Add a text to try out the feature.</div>
+
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary">Add note</button>
+        </div>
+    </EditForm>
+</div>
+
+<div class="container-fluid">
+    <h3>Notes in local database</h3>
+
+    <QuickGrid Items="@notes" Class="table">
+        <PropertyColumn Property="@(p => p.Text)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.CreatedAt)" Format="yyyy-MM-dd hh:mm:ss" Sortable="true" />
+    </QuickGrid>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    public NoteModel? Model { get; set; }
+
+    public IQueryable<NoteModel> notes;
+
+    protected override void OnInitialized()
+    {
+        Model ??= new();
+        RefreshNotes();
+    }
+
+    public class NoteModel
+    {
+        [Required]
+        [StringLength(500)]
+        public string Text { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+    }
+
+    private void Submit()
+    {
+
+        DbContext.Notes.Add(new Note
+            {
+                Text = Model!.Text,
+                CreatedAt = DateTime.UtcNow
+            });
+        DbContext.SaveChanges();
+        
+        Model = new NoteModel();
+        RefreshNotes();
+    }
+
+    private void RefreshNotes()
+    {
+        this.notes = DbContext.Notes.OrderByDescending(n => n.CreatedAt).Select(n => new NoteModel { Text = n.Text, CreatedAt = n.CreatedAt }).AsQueryable();
+    }
+
+}
