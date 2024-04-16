@@ -11,6 +11,7 @@ namespace MicroService.Producer.DataAccess
             builder.HasKey(x => x.Id);
             builder.Property(t => t.Text).HasColumnType("varchar").HasMaxLength(500);
             builder.Property(t => t.CreatedAt).HasColumnType("datetime2");
+            builder.Property(t => t.NoteId).HasColumnType("char").HasMaxLength(26);
         }
     }
 }

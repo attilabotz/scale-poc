@@ -33,6 +33,11 @@ namespace MicroService.Producer.DataAccess.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NoteId")
+                        .IsRequired()
+                        .HasMaxLength(26)
+                        .HasColumnType("char");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(500)

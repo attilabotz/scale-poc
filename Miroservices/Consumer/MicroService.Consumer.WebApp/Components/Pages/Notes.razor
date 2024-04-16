@@ -7,8 +7,9 @@
     <h3>Notes in local database</h3>
 
     <QuickGrid Items="@notes" Class="table">
-        <PropertyColumn Property="@(p => p.Text)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.CreatedAt)" Format="yyyy-MM-dd hh:mm:ss" Sortable="true" />
+        <PropertyColumn Property="@(p => p.NoteId)" Sortable="false" />
+        <PropertyColumn Property="@(p => p.Text)" Sortable="true"/>
+        <PropertyColumn Property="@(p => p.CreatedAt)" Format="yyyy-MM-dd hh:mm:ss" Sortable="true"/>
     </QuickGrid>
     
     <span>Last refreshed at @LastRefreshed.ToString("G")</span>
@@ -48,11 +49,18 @@
         public string Text { get; init; }
 
         public DateTime CreatedAt { get; init; }
+        public string NoteId { get; set; }
     }
 
     private void RefreshNotes()
     {
-        this.notes = DbContext.Notes.OrderByDescending(n => n.CreatedAt).Select(n => new NoteModel { Text = n.Text, CreatedAt = n.CreatedAt }).AsQueryable();
+        this.notes = DbContext.Notes.OrderByDescending(n => n.CreatedAt)
+            .Select(n => new NoteModel
+            {
+                Text = n.Text, 
+                CreatedAt = n.CreatedAt,
+                NoteId = n.NoteId
+            }).AsQueryable();
     }
 
 }
