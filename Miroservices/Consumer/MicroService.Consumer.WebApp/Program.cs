@@ -1,5 +1,8 @@
+using MassTransit;
 using MicroService.Consumer.DataAccess;
 using MicroService.Consumer.WebApp.Components;
+using MicroService.Consumer.WebApp.Consumers;
+using MicroService.Consumer.WebApp.Events;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroService.Consumer.WebApp
@@ -22,6 +25,23 @@ namespace MicroService.Consumer.WebApp
             
             builder.Services.AddQuickGridEntityFrameworkAdapter();
 
+            builder.Services.AddMassTransit(x =>
+            {
+                x.UsingInMemory();
+                x.AddRider(rider =>
+                {
+                    rider.AddConsumer<NoteCreatedConsumer>();
+                    rider.UsingKafka((context, cfg) =>
+                    {
+                        cfg.Host("localhost:19092");
+                        cfg.TopicEndpoint<NoteCreated>("note-created", "consumer-webapp", e =>
+                        {
+                            e.ConfigureConsumer<NoteCreatedConsumer>(context);
+                        });
+                    });
+                });
+            });
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

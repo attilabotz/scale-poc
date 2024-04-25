@@ -1,7 +1,7 @@
 ﻿@page "/notes"
-@using System.ComponentModel.DataAnnotations
+@using MicroService.Producer.WebApp.Notes
 @using Microsoft.AspNetCore.Components.QuickGrid
-@inject ProducerContext DbContext;
+@inject MicroService.Producer.WebApp.Notes.INoteManager NoteManager; 
 
 <div class="container-fluid mb-4">
     <h3>Add a note</h3>
@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <h3>Notes in local database</h3>
 
-    <QuickGrid Items="@notes" Class="table">
+    <QuickGrid Items="@_notes" Class="table">
         <PropertyColumn Property="@(p => p.NoteId)" Sortable="false"/>
         <PropertyColumn Property="@(p => p.Text)" Sortable="true"/>
         <PropertyColumn Property="@(p => p.CreatedAt)" Format="yyyy-MM-dd hh:mm:ss" Sortable="true"/>
@@ -36,7 +36,7 @@
 @code {
     [SupplyParameterFromForm] public NoteModel? Model { get; set; }
 
-    public IQueryable<NoteModel> notes;
+    private IQueryable<NoteModel>? _notes;
 
     protected override void OnInitialized()
     {
@@ -44,37 +44,18 @@
         RefreshNotes();
     }
 
-    public class NoteModel
-    {
-        [Required] [StringLength(500)] public string Text { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public string NoteId { get; set; }
-    }
-
     private void Submit()
     {
-        DbContext.Notes.Add(new Note
-        {
-            Text = Model!.Text,
-            CreatedAt = DateTime.UtcNow,
-            NoteId = Ulid.NewUlid().ToString()
-        });
-        DbContext.SaveChanges();
+        NoteManager.CreateNode(Model!.Text);
 
+        
         Model = new NoteModel();
         RefreshNotes();
     }
 
     private void RefreshNotes()
     {
-        this.notes = DbContext.Notes.OrderByDescending(n => n.CreatedAt).Select(n => new NoteModel
-        {
-            Text = n.Text, 
-            CreatedAt = n.CreatedAt,
-            NoteId = n.NoteId
-        }).AsQueryable();
+        this._notes = NoteManager.GetAllNotes();
     }
 
 }

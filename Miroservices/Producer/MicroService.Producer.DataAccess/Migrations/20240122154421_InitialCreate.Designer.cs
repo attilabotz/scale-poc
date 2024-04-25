@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MicroService.Producer.DataAccess.Migrations
 {
-    [DbContext(typeof(ProducerContext))]
+    [DbContext(typeof(NoteProducerContext))]
     [Migration("20240122154421_InitialCreate")]
     partial class InitialCreate
     {

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MicroService.Producer.DataAccess.Migrations
 {
-    [DbContext(typeof(ProducerContext))]
+    [DbContext(typeof(NoteProducerContext))]
     [Migration("20240416115252_NoteId")]
     partial class NoteId
     {

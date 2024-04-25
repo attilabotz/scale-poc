@@ -27,18 +27,6 @@
     {
         Model ??= new();
         RefreshNotes();
-
-        var timer = new  Timer(_ =>
-        {
-            InvokeAsync(() =>
-            {
-                LastRefreshed = DateTime.Now;
-                RefreshNotes();
-                this.StateHasChanged();
-            });
-            Console.WriteLine("Refreshed");
-
-        }, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
     }
 
 
