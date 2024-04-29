@@ -1,4 +1,6 @@
-﻿using Confluent.Kafka;
+﻿using System;
+using System.Threading;
+using Confluent.Kafka;
 
 namespace ConsoleConsumer
 {
@@ -20,7 +22,8 @@ namespace ConsoleConsumer
                 while (true)
                 {
                     var consumeResult = consumer.Consume();
-                    System.Console.WriteLine($"Consumed message '{consumeResult.Message.Value}' at: '{consumeResult.TopicPartitionOffset}'");
+                    Thread.Sleep(10000);
+                    System.Console.WriteLine($"[{DateTime.Now:T}] Consumed message '{consumeResult.Message.Value}' at: '{consumeResult.TopicPartitionOffset}'");
                 }
             }
         }

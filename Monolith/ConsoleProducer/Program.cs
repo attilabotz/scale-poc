@@ -23,7 +23,7 @@ namespace ConsoleProducer
 
                     producer.Produce("current-time",
                         new Message<string, string> { Key = "CurrentTime", Value = DateTime.Now.ToString() });
-                    Thread.Sleep(5000);
+                    Thread.Sleep(1000);
                 }
             }
         }
