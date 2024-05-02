@@ -8,8 +8,8 @@
     <ProjectGuid>{36B28049-F040-4BCF-ADF0-782E4707A3E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Notes</RootNamespace>
-    <AssemblyName>Notes</AssemblyName>
+    <RootNamespace>NoteManager</RootNamespace>
+    <AssemblyName>NoteManager</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,18 +52,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\NoteDto.cs" />
-    <Compile Include="Events\NoteCreated.cs" />
     <Compile Include="INoteManager.cs" />
-    <Compile Include="INotePublisher.cs" />
-    <Compile Include="Models\NoteModel.cs" />
     <Compile Include="NoteManager.cs" />
-    <Compile Include="NotePublisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess.Note\DataAccess.Note.csproj">
       <Project>{B575C35D-683E-4064-9D68-59F5B381DCBD}</Project>
       <Name>DataAccess.Note</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoteCommunication\NoteCommunication.csproj">
+      <Project>{885CDFFB-51CF-4CB0-8D41-47D9DBCEBB6C}</Project>
+      <Name>NoteCommunication</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

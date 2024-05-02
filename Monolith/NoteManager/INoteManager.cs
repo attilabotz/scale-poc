@@ -1,6 +1,6 @@
-﻿using Notes.DTO;
+﻿using NoteManager.DTO;
 
-namespace Notes
+namespace NoteManager
 {
     public interface INoteManager
     {

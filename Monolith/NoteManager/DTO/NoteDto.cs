@@ -1,5 +1,5 @@
 ﻿
-namespace Notes.DTO
+namespace NoteManager.DTO
 {
     public class NoteDto
     {

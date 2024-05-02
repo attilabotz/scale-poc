@@ -1,6 +1,6 @@
-﻿using Notes.Models;
+﻿using NoteCommunication.Models;
 
-namespace Notes
+namespace NoteCommunication
 {
     public interface INotePublisher
     {

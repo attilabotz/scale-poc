@@ -1,9 +1,10 @@
 ﻿using System;
 using DataAccess.Note;
-using Notes.DTO;
-using Notes.Models;
+using NoteCommunication;
+using NoteCommunication.Models;
+using NoteManager.DTO;
 
-namespace Notes
+namespace NoteManager
 {
     public class NoteManager : INoteManager
     {

@@ -1,4 +1,4 @@
-﻿namespace Notes.Models
+﻿namespace NoteCommunication.Models
 {
     public class NoteModel
     {

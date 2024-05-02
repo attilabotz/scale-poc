@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
-using Notes;
-using Notes.DTO;
+using NoteManager;
+using NoteManager.DTO;
 using WebAPI.Note;
 
 namespace WebAPI.Controllers
