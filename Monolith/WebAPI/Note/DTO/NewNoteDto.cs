@@ -1,7 +1,7 @@
 ﻿
-namespace NoteManager.DTO
+namespace WebAPI.Note.DTO
 {
-    public class NoteDto
+    public class NewNoteDto
     {
         public string Title { get; set; }
     }
