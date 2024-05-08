@@ -31,8 +31,8 @@ namespace WebAPI.DataAccess
         public NoteConfiguration()
         {
             this.HasKey(x => x.Id);
-            this.Property(x => x.PublicId).IsRequired();
-            this.Property(x => x.Title).IsRequired();
+            this.Property(x => x.PublicId).IsRequired().HasMaxLength(26);
+            this.Property(x => x.Title).IsRequired().HasMaxLength(500);
             this.Property(x => x.CreatedAt).IsRequired();
         }
     }

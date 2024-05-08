@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Paramore.Brighter;
 
 namespace WebAPI.DataAccess
 {
     public class EntityFwTransactionConnectionProvider : IAmABoxTransactionConnectionProvider
     {
+        // debugging purposes
         private string Name = Ulid.NewUlid().ToString();
         
         public readonly NoteContext Context;

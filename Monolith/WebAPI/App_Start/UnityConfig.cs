@@ -54,14 +54,14 @@ namespace WebAPI
 
             var outbox = new MsSqlOutbox(new MsSqlConfiguration(connectionString, "Outbox"));
 
-            var unitOfWork = new EntityFwTransactionConnectionProvider(new NoteContext());
-            diContainer.RegisterInstance(unitOfWork);
+            var boxTransactionConnectionProvider = new EntityFwTransactionConnectionProvider(new NoteContext());
+            diContainer.RegisterInstance(boxTransactionConnectionProvider);
             diContainer.RegisterType<IAmABoxTransactionConnectionProvider, EntityFwTransactionConnectionProvider>();
 
             IAmACommandProcessorBuilder commandProcBuilder = CommandProcessorBuilder.With()
                 .Handlers(new HandlerConfiguration(subscriberRegistry, handlerFactory))
                 .DefaultPolicy()
-                .ExternalBus(new ExternalBusConfiguration(kafkaProducer, outgoingMessageMapperRegistry), outbox, unitOfWork)
+                .ExternalBus(new ExternalBusConfiguration(kafkaProducer, outgoingMessageMapperRegistry), outbox, boxTransactionConnectionProvider)
                 .RequestContextFactory(new InMemoryRequestContextFactory());
 
             CommandProcessor commander = commandProcBuilder.Build();
