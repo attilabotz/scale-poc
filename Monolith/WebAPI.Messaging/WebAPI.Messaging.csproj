@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Paramore.Brighter" Version="9.7.8" />
+    <PackageReference Include="Paramore.Brighter.Extensions.Hosting" Version="9.7.8" />
+    <PackageReference Include="Paramore.Brighter.MessagingGateway.Kafka" Version="9.7.8" />
+    <PackageReference Include="Paramore.Brighter.Outbox.MsSql" Version="9.7.8" />
+  </ItemGroup>
+
+</Project>

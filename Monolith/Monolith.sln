@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleConsumer", "ConsoleC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1F124014-08F1-4677-94B4-66A87F6EF63D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.OutboxWorkerService.Net8", "WebAPI.OutboxWorkerService\WebAPI.OutboxWorkerService.Net8.csproj", "{66D80E82-2DD9-4102-8C39-5A92595AE0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Messaging", "WebAPI.Messaging\WebAPI.Messaging.csproj", "{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{1F124014-08F1-4677-94B4-66A87F6EF63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F124014-08F1-4677-94B4-66A87F6EF63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F124014-08F1-4677-94B4-66A87F6EF63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D80E82-2DD9-4102-8C39-5A92595AE0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D80E82-2DD9-4102-8C39-5A92595AE0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D80E82-2DD9-4102-8C39-5A92595AE0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D80E82-2DD9-4102-8C39-5A92595AE0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

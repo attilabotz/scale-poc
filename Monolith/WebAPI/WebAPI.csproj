@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.303.14\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DynamoDBv2, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.DynamoDBv2.3.7.302.15\lib\net45\AWSSDK.DynamoDBv2.dll</HintPath>
+    </Reference>
     <Reference Include="Azure.Core, Version=1.35.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Core.1.35.0\lib\net472\Azure.Core.dll</HintPath>
     </Reference>
@@ -78,14 +84,38 @@
     <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.SqlClient.5.2.0\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.8.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.8.0.1\lib\net462\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.CommandLine.8.0.0\lib\net462\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.EnvironmentVariables.8.0.0\lib\net462\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.UserSecrets, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.UserSecrets.8.0.0\lib\net462\Microsoft.Extensions.Configuration.UserSecrets.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.8.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Diagnostics.8.0.0\lib\net462\Microsoft.Extensions.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Diagnostics.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Diagnostics.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Diagnostics.Abstractions.dll</HintPath>
@@ -99,6 +129,15 @@
     <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.8.0.0\lib\net462\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.8.0.0\lib\net462\Microsoft.Extensions.Hosting.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
     </Reference>
@@ -108,8 +147,26 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Configuration.8.0.0\lib\net462\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Console.8.0.0\lib\net462\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Debug.8.0.0\lib\net462\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventLog, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.EventLog.8.0.0\lib\net462\Microsoft.Extensions.Logging.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.EventSource.8.0.0\lib\net462\Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.ConfigurationExtensions.8.0.0\lib\net462\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
@@ -157,8 +214,14 @@
     <Reference Include="Paramore.Brighter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b90f5623ae237e2c, processorArchitecture=MSIL">
       <HintPath>..\packages\Paramore.Brighter.9.7.8\lib\netstandard2.0\Paramore.Brighter.dll</HintPath>
     </Reference>
+    <Reference Include="Paramore.Brighter.DynamoDb, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b90f5623ae237e2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Paramore.Brighter.DynamoDb.9.7.8\lib\netstandard2.0\Paramore.Brighter.DynamoDb.dll</HintPath>
+    </Reference>
     <Reference Include="Paramore.Brighter.Extensions.DependencyInjection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b90f5623ae237e2c, processorArchitecture=MSIL">
       <HintPath>..\packages\Paramore.Brighter.Extensions.DependencyInjection.9.7.8\lib\netstandard2.0\Paramore.Brighter.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Paramore.Brighter.Extensions.Hosting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b90f5623ae237e2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Paramore.Brighter.Extensions.Hosting.9.7.8\lib\netstandard2.0\Paramore.Brighter.Extensions.Hosting.dll</HintPath>
     </Reference>
     <Reference Include="Paramore.Brighter.MessagingGateway.Kafka, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Paramore.Brighter.MessagingGateway.Kafka.9.7.8\lib\netstandard2.0\Paramore.Brighter.MessagingGateway.Kafka.dll</HintPath>
@@ -348,18 +411,11 @@
     </Compile>
     <Compile Include="DataAccess\Migrations\Configuration.cs" />
     <Compile Include="DataAccess\NoteContext.cs" />
-    <Compile Include="Messaging\Commands\SignNoteCommand.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Messaging\Events\NoteCreated.cs" />
-    <Compile Include="Messaging\Events\NoteSignedEvent.cs" />
-    <Compile Include="Messaging\Handlers\SignNoteCommandHandler.cs" />
-    <Compile Include="Messaging\MessageMappers\NoteSignedMessageMapper.cs" />
-    <Compile Include="Messaging\MessageMappers\SignNoteCommandMessageMapper.cs" />
-    <Compile Include="Messaging\NoteHandlerFactory.cs" />
     <Compile Include="Note\ApiModels\NoteApiModel.cs" />
     <Compile Include="Note\DTO\NewNoteDto.cs" />
     <Compile Include="Note\DTO\NoteDetailDto.cs" />
@@ -369,9 +425,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -379,29 +433,27 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Messaging\Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataAccess\Migrations\202404291456108_Init.resx">
       <DependentUpon>202404291456108_Init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebAPI.Messaging\WebAPI.Messaging.csproj">
+      <Project>{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}</Project>
+      <Name>WebAPI.Messaging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.302.15\analyzers\dotnet\cs\AWSSDK.DynamoDBv2.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.302.15\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

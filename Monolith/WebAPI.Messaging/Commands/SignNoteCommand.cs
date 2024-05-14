@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using Paramore.Brighter;
 
 namespace WebAPI.Messaging.Commands
@@ -9,7 +8,6 @@ namespace WebAPI.Messaging.Commands
         public string NoteTitle { get; set; }
         public string NotePublicId { get; set; }
 
-        //public SignNoteCommand() : base(Guid.NewGuid()) { }
         public SignNoteCommand(Guid id) : base(id) { }
 
         public SignNoteCommand(string publicId, string title) : base(Guid.NewGuid())
