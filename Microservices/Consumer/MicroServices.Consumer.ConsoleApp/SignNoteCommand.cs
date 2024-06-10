@@ -1,4 +1,5 @@
-﻿using Paramore.Brighter;
+﻿using System.Drawing;
+using Paramore.Brighter;
 
 namespace MicroServices.Consumer.ConsoleApp
 {
@@ -6,8 +7,9 @@ namespace MicroServices.Consumer.ConsoleApp
     {
         public string? NoteTitle { get; set; }
         public string? NotePublicId { get; set; }
-
+        public ReplyAddress ReplyAddress { get; set; }
         public SignNoteCommand() : base(Guid.NewGuid()) { }
+
         public SignNoteCommand(Guid id) : base(id) { }
 
         public SignNoteCommand(string publicId, string title) : base(Guid.NewGuid())
@@ -16,4 +18,5 @@ namespace MicroServices.Consumer.ConsoleApp
             this.NoteTitle = title;
         }
     }
+
 }

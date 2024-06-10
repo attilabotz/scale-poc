@@ -36,7 +36,8 @@ namespace WebAPI.Note
                 
                 this._unitOfWork.Context.SaveChanges();
 
-                this._commander.DepositPost(new SignNoteCommand(n.PublicId, n.Title));
+                this._commander.DepositPost(new SignNoteCommand(n.PublicId, n.Title)); 
+                //this._commander.ClearOutbox();
 
                 this._unitOfWork.Close();
             }

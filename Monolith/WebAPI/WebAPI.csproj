@@ -436,6 +436,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Brighter\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

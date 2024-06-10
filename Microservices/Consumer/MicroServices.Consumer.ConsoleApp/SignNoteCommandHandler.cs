@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Paramore.Brighter;
+﻿using Paramore.Brighter;
+using Paramore.Brighter.Inbox.Attributes;
 
 namespace MicroServices.Consumer.ConsoleApp
 {
-    public class SingNoteCommandHandler : RequestHandler<SignNoteCommand>
+    public class SignNoteCommandHandler : RequestHandler<SignNoteCommand>
     {
+        [UseInbox(step:0, contextKey: typeof(SignNoteCommandHandler), onceOnly: false)]
         public override SignNoteCommand Handle(SignNoteCommand command)
         {
+            throw new System.NotImplementedException();
             Console.WriteLine($"[{DateTime.UtcNow:s}] Signing note: {command.NotePublicId}, title: {command.NoteTitle}");
             return command;
         }

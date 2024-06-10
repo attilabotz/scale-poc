@@ -1,7 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Paramore.Brighter;
+using Paramore.Brighter.Extensions.DependencyInjection;
+using Paramore.Brighter.Inbox.MsSql;
 using Paramore.Brighter.MessagingGateway.Kafka;
+using Paramore.Brighter.MsSql;
 using Paramore.Brighter.ServiceActivator.Extensions.DependencyInjection;
 using Paramore.Brighter.ServiceActivator.Extensions.Hosting;
 
@@ -35,18 +40,28 @@ namespace MicroServices.Consumer.ConsoleApp
                         new KafkaMessagingGatewayConfiguration()
                         {
                             Name = "note-signer-consumer",
-                            BootStrapServers = new[] { "localhost:19092" }
+                            BootStrapServers = new[] { "localhost:19092" },
+                            Debug = "cgrp, topic, fetch"
                         }
                         );
-                    
+
+                    var sqlConfiguration =
+                        new MsSqlConfiguration(hostContext.Configuration.GetConnectionString("ConsumerDb"), "Outbox", "Inbox");
+                    var sqlInbox = new MsSqlInbox(sqlConfiguration);
                     services.AddServiceActivator(o =>
                     {
                         o.Subscriptions = subscription;
                         o.ChannelFactory = new ChannelFactory(consumerFactory);
                     })
-                    .AutoFromAssemblies();
+                    .AutoFromAssemblies()
+                    .UseExternalInbox(sqlInbox);
 
                     services.AddHostedService<ServiceActivatorHostedService>();
+                })
+                .ConfigureLogging((hc, logging) =>
+                {
+                    logging.SetMinimumLevel(LogLevel.Debug);
+                    logging.AddConsole();
                 });
     }
 }

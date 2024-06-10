@@ -17,13 +17,15 @@ namespace WebAPI.OutboxWorkerService.Net8
             var kafkaConnection = new KafkaMessagingGatewayConfiguration()
             {
                 Name = "webapi",
-                BootStrapServers = new[] { "localhost:19092" }
+                BootStrapServers = new[] { "localhost:19092" },
+                Debug = "broker, topic, msg"
             };
             var kafkaPubs = new[]
             {
                 new KafkaPublication()
                 {
-                    Topic = new RoutingKey("sign-note")
+                    Topic = new RoutingKey("sign-note"),
+                    MakeChannels = OnMissingChannel.Assume
                 }
             };
             IAmAProducerRegistry? kafkaProducer = new KafkaProducerRegistryFactory(kafkaConnection, kafkaPubs).Create();

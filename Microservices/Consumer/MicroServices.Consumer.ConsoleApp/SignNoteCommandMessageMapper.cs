@@ -12,7 +12,12 @@ namespace MicroServices.Consumer.ConsoleApp
     {
         public Message MapToMessage(SignNoteCommand request)
         {
-            var header = new MessageHeader(messageId: request.Id, topic: "sign-note", messageType: MessageType.MT_COMMAND);
+            var header = new MessageHeader(
+                messageId: request.Id, 
+                topic: "sign-note", 
+                messageType: MessageType.MT_COMMAND,
+                replyTo: request.ReplyAddress.Topic,
+                correlationId: request.ReplyAddress.CorrelationId);
             var body = new MessageBody(JsonConvert.SerializeObject(request));
 
             var message = new Message(header, body);
