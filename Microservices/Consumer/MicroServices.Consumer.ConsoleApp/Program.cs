@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using MicroService.Consumer.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -27,6 +29,12 @@ namespace MicroServices.Consumer.ConsoleApp
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddDbContext<ConsumerContext>(options
+                    =>
+                    {
+                        options.UseSqlServer(hostContext.Configuration.GetConnectionString("ConsumerDb"));
+                    }, ServiceLifetime.Singleton);
+
                     var subscription = new KafkaSubscription[]
                     {
                         new KafkaSubscription<SignNoteCommand>(
@@ -46,17 +54,26 @@ namespace MicroServices.Consumer.ConsoleApp
                         );
 
                     var sqlConfiguration =
-                        new MsSqlConfiguration(hostContext.Configuration.GetConnectionString("ConsumerDb"), "Outbox", "Inbox");
+                        new MsSqlConfiguration(hostContext.Configuration.GetConnectionString("ConsumerDb"), 
+                        outBoxTableName:"Outbox", 
+                        inboxTableName: "Inbox");
                     var sqlInbox = new MsSqlInbox(sqlConfiguration);
+                    
                     services.AddServiceActivator(o =>
                     {
                         o.Subscriptions = subscription;
                         o.ChannelFactory = new ChannelFactory(consumerFactory);
                     })
                     .AutoFromAssemblies()
-                    .UseExternalInbox(sqlInbox);
+                    .UseExternalInbox(sqlInbox, new InboxConfiguration(
+                        scope: InboxScope.All, 
+                        onceOnly: true, 
+                        actionOnExists: Paramore.Brighter.Inbox.OnceOnlyAction.Throw
+                        ));
 
                     services.AddHostedService<ServiceActivatorHostedService>();
+
+
                 })
                 .ConfigureLogging((hc, logging) =>
                 {

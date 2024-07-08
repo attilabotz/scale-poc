@@ -9,8 +9,9 @@ namespace MicroService.Consumer.DataAccess
         {
             builder.ToTable("Note");
             builder.HasKey(x => x.Id);
-            builder.Property(t => t.Text).HasColumnType("varchar").HasMaxLength(500);
-            builder.Property(t => t.CreatedAt).HasColumnType("datetime2");
+            builder.Property(t => t.Text).IsRequired().HasColumnType("varchar").HasMaxLength(500);
+            builder.Property(t => t.CreatedAt).IsRequired().HasColumnType("datetime2");
+            builder.Property(t => t.Signature).IsRequired(false).HasColumnType("varchar").HasMaxLength(500);
         }
     }
 }

@@ -6,5 +6,6 @@
         public string Text { get; set; }
         public DateTime CreatedAt { get; set; }
         public string NoteId { get; set; }
+        public string? Signature { get; set; }
     }
 }

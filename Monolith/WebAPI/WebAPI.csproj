@@ -405,17 +405,17 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="DataAccess\EntityFwTransactionConnectionProvider.cs" />
-    <Compile Include="DataAccess\Migrations\202404291456108_Init.cs" />
-    <Compile Include="DataAccess\Migrations\202404291456108_Init.Designer.cs">
-      <DependentUpon>202404291456108_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataAccess\Migrations\Configuration.cs" />
     <Compile Include="DataAccess\NoteContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406121314229_Init.cs" />
+    <Compile Include="Migrations\202406121314229_Init.Designer.cs">
+      <DependentUpon>202406121314229_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note\ApiModels\NoteApiModel.cs" />
     <Compile Include="Note\DTO\NewNoteDto.cs" />
     <Compile Include="Note\DTO\NoteDetailDto.cs" />
@@ -442,11 +442,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataAccess\Migrations\202404291456108_Init.resx">
-      <DependentUpon>202404291456108_Init.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WebAPI.Messaging\WebAPI.Messaging.csproj">
       <Project>{95C600ED-184B-4EF9-BD3B-1388CCC4C02C}</Project>
       <Name>WebAPI.Messaging</Name>
@@ -455,6 +450,11 @@
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.302.15\analyzers\dotnet\cs\AWSSDK.DynamoDBv2.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.302.15\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202406121314229_Init.resx">
+      <DependentUpon>202406121314229_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

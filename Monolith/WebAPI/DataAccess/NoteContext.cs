@@ -6,7 +6,7 @@ namespace WebAPI.DataAccess
 {
     public class NoteContext : DbContext
     {
-        public NoteContext() : base("name=NoteContext")
+        public NoteContext() : base("NoteContext")
         {
         }
 

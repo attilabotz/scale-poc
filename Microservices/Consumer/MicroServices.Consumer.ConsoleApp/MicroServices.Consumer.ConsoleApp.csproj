@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageReference Include="Paramore.Brighter" Version="9.7.8" />
     <PackageReference Include="Paramore.Brighter.Extensions.DependencyInjection" Version="9.7.8" />
@@ -34,6 +38,10 @@
     <PackageReference Include="Paramore.Brighter.ServiceActivator" Version="9.7.8" />
     <PackageReference Include="Paramore.Brighter.ServiceActivator.Extensions.DependencyInjection" Version="9.7.8" />
     <PackageReference Include="Paramore.Brighter.ServiceActivator.Extensions.Hosting" Version="9.7.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroService.Consumer.DataAccess\MicroService.Consumer.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
